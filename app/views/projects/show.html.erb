@@ -1,0 +1,18 @@
+<h1><%= @project.name %></h1>
+<p><%= @project.description %></p>
+
+<div>
+<%= link_to "features", features_path %>
+
+<%= form_for Feature.new do |f| %>
+  
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+
+	<%= f.submit "Save feature" %>
+
+<% end %>
+</div>

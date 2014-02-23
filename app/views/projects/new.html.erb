@@ -1,0 +1,13 @@
+<%= link_to "projects", projects_path %>
+
+<%= form_for @project do |f| %>
+  
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+
+	<%= f.submit "Save project" %>
+
+<% end %>
