@@ -1,13 +1,29 @@
-<%= link_to "projects", projects_path %>
+<h1>New project</h1>
 
 <%= form_for @project do |f| %>
-  
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+	<div class="row collapse">
+		<div class="small-3 columns">  
+			<%= f.label :name, class: "right inline" %>
+		</div>
+		<div class="small-9 columns">
+			<%= f.text_field :name %>
+		</div>
+	</div>
 
-	<%= f.label :description %>
-	<%= f.text_area :description %>
-
-	<%= f.submit "Save project" %>
+	<div class="row collapse">
+		<div class="small-3 columns">
+			<%= f.label :description, class: "right inline" %>
+		</div>
+		<div class="small-9 columns">
+			<%= f.text_area :description %>
+		</div>
+	</div>
+	<div class="row collapse">
+		<div class="small-9 small-offset-3 columns">
+			<%= f.submit "Save project", class: "button radius" %>
+			<%= link_to "Cancel", projects_path, class: "button radius" %>
+		</div>
+	</div>
+	
 
 <% end %>

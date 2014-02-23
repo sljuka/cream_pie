@@ -10,9 +10,9 @@ describe "projects/new.html.erb" do
 		assign(:project, project)
 	end
 
-	it "displays a link for projects index view" do
+	it "displays a cancel link that returns to projects index view" do
 		render
-		rendered.should have_link("projects", href: projects_path)
+		rendered.should have_link("Cancel", href: projects_path)
 	end
 
 	it "displays a form for adding projects" do
