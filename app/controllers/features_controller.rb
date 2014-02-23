@@ -1,22 +1,15 @@
 class FeaturesController < ApplicationController
   def index
-  	@projects = Project.all
+  	@project = Project.find(params[:project_id])
+    @features = @project.features
   end
 
   def show
-  	@feature = Feature.find(params[:id])
+  
   end
 
   def create
-  	@project = Project.find(params[:id])
-  	@feature = Feature.new(FeatureParams.build)
-  	if @feature.save
-  		flash[:notice] = "task added successfuly"
-  		redirect_to @feature
-  	else
-  		flash.now[:error] = "error"
-  		render 'new'
-  	end
+  
   end
 
   def new

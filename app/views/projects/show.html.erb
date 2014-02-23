@@ -2,9 +2,9 @@
 <p><%= @project.description %></p>
 
 <div>
-<%= link_to "features", features_path %>
+<%= link_to "features", project_features_path(@project) %>
 
-<%= form_for Feature.new do |f| %>
+<%= form_for([@project, @feature]) do |f| %>
   
 	<%= f.label :name %>
 	<%= f.text_field :name %>
