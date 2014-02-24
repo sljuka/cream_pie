@@ -1,0 +1,19 @@
+<li class="feature">
+	<div class="row">
+		<div class="large-12 columns">
+			<strong><%= feature.name %></strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns">
+			<p><%= feature.description %></p>
+		</div> 
+	</div>	
+	<div class="row">
+		<div class="large-12 columns">
+			<%= link_to 'Edit', '#' %>
+			<%= link_to 'Delete', '#' %>
+			<%= link_to 'Show', project_feature_path(project, feature) %>
+		</div>
+	</div>
+</li>

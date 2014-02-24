@@ -1,6 +1,12 @@
-<li>
-	<%= project.name %>
-	<%= link_to 'Edit', edit_project_path(project) %>
-	<%= link_to 'Delete', project, method: :delete %>
-	<%= link_to 'Show', project_path(project) %>
+<li class="project">
+	<div class="row">
+		<div class="large-4 columns"><%= project.name %></div> 
+		<div class="small-4 columns">
+			<%= link_to 'Show', project_path(project), class: 'button tiny radius' %>
+			<%= link_to 'Edit', edit_project_path(project), class: 'button tiny radius' %>
+			<%= link_to 'Delete', project, method: :delete, class: 'button tiny radius' %>	
+		</div>
+		<div class="small-4 columns">
+		</div>
+	</div>
 </li>

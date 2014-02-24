@@ -1,18 +1,40 @@
 <h1><%= @project.name %></h1>
-<p><%= @project.description %></p>
+<p><strong>Description:</strong> <%= @project.description %></p>
 
-<div>
-<%= link_to "features", project_features_path(@project) %>
+<h3>Features</h3>
 
-<%= form_for([@project, @feature]) do |f| %>
-  
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+<ul>
+	<% @project.features.each do |feature| %>
+		<%= render partial: "layouts/feature", locals: { project: @project, feature: feature } %>
+	<% end %>
+</ul>
 
-	<%= f.label :description %>
-	<%= f.text_area :description %>
 
-	<%= f.submit "Save feature" %>
+<%= form_for([@project, Feature.new]) do |f| %>
+
+	<div class="row collapse">
+		<div class="small-3 columns">  
+			<%= f.label :name, class: "right inline" %>
+		</div>
+		<div class="small-9 columns">
+			<%= f.text_field :name %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="small-3 columns">
+			<%= f.label :description, class: "right inline" %>
+		</div>
+		<div class="small-9 columns">
+			<%= f.text_area :description %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="small-9 small-offset-3 columns">
+			<%= f.submit "Save feature", class: "button radius small" %>
+		</div>
+	</div>
 
 <% end %>
 </div>
