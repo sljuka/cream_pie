@@ -1,7 +1,6 @@
 == cream pie
 
-This this is a learning-pratice project, it is not ment for production.
-Cream pie is a simple change control system. It is a rails app, and is built outside in (BDD way).
+Cream pie is a simple change control system. It is a rails app.
 
 Things you may want to cover:
 
