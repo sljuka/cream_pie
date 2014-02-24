@@ -11,7 +11,7 @@ describe ProjectsController do
 			assigns[:projects].should eq([project])
 		end
 
-		it "renders the :index view" do
+		it "renders the project index page" do
 			get :index
 			response.should render_template('index') 
 		end

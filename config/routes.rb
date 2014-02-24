@@ -1,5 +1,7 @@
 CreamPie::Application.routes.draw do
 
+  root 'projects#index'
+
   resources :projects do
     resources :features
   end

@@ -34,7 +34,6 @@ describe "projects/index.html.erb" do
 end
 
 def displays_options(project)
-	rendered.should have_link("Edit", href: edit_project_path(project))
 	rendered.should have_link("Delete", href: project_path(project))
 	rendered.should have_link("Show", href: project_path(project))
 end
