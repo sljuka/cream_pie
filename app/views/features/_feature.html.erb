@@ -13,7 +13,7 @@
 		<div class="large-12 columns">
 			<%= link_to 'Show', project_feature_path(project, feature), class: 'button radius tiny' %>
 			<%= link_to 'Delete', project_feature_path(project, feature), method: :delete,
-		 		class: 'button radius tiny alert' %>
+		 		class: 'button radius tiny alert delete_feature', :remote => true %>
 		</div>
 	</div>
 </li>

@@ -1,29 +1,3 @@
 <h1>New project</h1>
 
-<%= form_for @project do |f| %>
-	<div class="row collapse">
-		<div class="small-3 columns">  
-			<%= f.label :name, class: "right inline" %>
-		</div>
-		<div class="small-9 columns">
-			<%= f.text_field :name %>
-		</div>
-	</div>
-
-	<div class="row collapse">
-		<div class="small-3 columns">
-			<%= f.label :description, class: "right inline" %>
-		</div>
-		<div class="small-9 columns">
-			<%= f.text_area :description %>
-		</div>
-	</div>
-	<div class="row collapse">
-		<div class="small-9 small-offset-3 columns">
-			<%= f.submit "Save project", class: "button radius" %>
-			<%= link_to "Cancel", projects_path, class: "button radius secondary" %>
-		</div>
-	</div>
-	
-
-<% end %>
+<%= render partial: "projects/project_form", locals: { project: @project } %>

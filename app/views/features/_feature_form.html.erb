@@ -1,0 +1,27 @@
+<%= form_for([project, Feature.new], :remote => true) do |f| %>
+
+	<div class="row collapse">
+		<div class="small-3 columns">  
+			<%= f.label :name, class: "right inline" %>
+		</div>
+		<div class="small-9 columns">
+			<%= f.text_field :name %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="small-3 columns">
+			<%= f.label :description, class: "right inline" %>
+		</div>
+		<div class="small-9 columns">
+			<%= f.text_area :description %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="small-9 small-offset-3 columns">
+			<%= f.submit "Save feature", class: "button radius small" %>
+		</div>
+	</div>
+
+<% end %>

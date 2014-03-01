@@ -6,21 +6,27 @@ class FeaturesController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @feature = @project.features.build(FeatureParams.build params)
-    if @feature.save
-      flash[:success] = "project added successfuly!"
-      redirect_to @project
-    else
-      flash.now[:error] = "error while adding feature"
-      render :template => 'projects/show'
+    respond_to do |format|
+      @feature = @project.features.build(FeatureParams.build params)
+      if @feature.save
+        format.html
+        format.js
+      else
+        flash.now[:error] = "error while adding feature"
+        render :template => 'projects/show'
+      end
     end
   end
 
   def destroy
-    @project = Project.find(params[:project_id])
-    @feature = Feature.find(params[:id])
+    project = Project.find(params[:project_id])
+    @feature = project.features.find(params[:id])
     @feature.destroy
-    redirect_to @project
+    @project = Project.find(params[:project_id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   class FeatureParams < ActionController::Parameters

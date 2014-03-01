@@ -3,38 +3,8 @@
 
 <h3>Features</h3>
 
-<ul>
-	<% @project.features.each do |feature| %>
-		<%= render partial: "layouts/feature", locals: { project: @project, feature: feature } %>
-	<% end %>
+<ul class="feature_list">
+	<%= render partial: "features/feature", collection: @project.features, as: :feature, locals: { project: @project } %>
 </ul>
 
-
-<%= form_for([@project, Feature.new]) do |f| %>
-
-	<div class="row collapse">
-		<div class="small-3 columns">  
-			<%= f.label :name, class: "right inline" %>
-		</div>
-		<div class="small-9 columns">
-			<%= f.text_field :name %>
-		</div>
-	</div>
-
-	<div class="row collapse">
-		<div class="small-3 columns">
-			<%= f.label :description, class: "right inline" %>
-		</div>
-		<div class="small-9 columns">
-			<%= f.text_area :description %>
-		</div>
-	</div>
-
-	<div class="row collapse">
-		<div class="small-9 small-offset-3 columns">
-			<%= f.submit "Save feature", class: "button radius small" %>
-		</div>
-	</div>
-
-<% end %>
-</div>
+<%= render partial: "features/feature_form", locals: { project: @project } %>
