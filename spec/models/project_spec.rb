@@ -19,8 +19,17 @@ describe Project do
 		project.should be_valid
 	end
 
-	it "has no projects in database" do
-		expect(Project).to have(0).records
+	describe "#h_projects" do
+
+		it "returns projects which have a feature with a name strarting with 'h'" do
+			@p1 = Project.create(:name => "new")
+			@p2 = Project.create(:name => "new2")
+
+			@f1 = @p1.features.create(:name => "hh")
+			@f2 = @p2.features.create(:name => "bh")
+
+			expect(Project.h_projects.count).to eq(1)
+		end
 	end
 
 end

@@ -9,4 +9,8 @@ FactoryGirl.define do
   	sequence(:name) {|n| "Project#{n}" }
   end
 
+  factory :projectWithFeatures do
+
+  end
+
 end

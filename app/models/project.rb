@@ -4,4 +4,8 @@ class Project < ActiveRecord::Base
 
 	has_many :features, dependent: :destroy
 
+	def self.h_projects
+		Project.select("projects.*").joins(:features).where(["features.name like ? COLLATE Latin1_General_CS_AS", "H%"])
+	end
+
 end

@@ -10,8 +10,6 @@ class Feature < ActiveRecord::Base
     generate_random_token
   end
 
-  protected
-
 	def generate_random_token
 		self.token = SecureRandom.hex(32)
 	end

@@ -29,6 +29,10 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def h_projects
+    @projects = Project.h_projects
+  end
+
   class ProjectParams < ActionController::Parameters
     def self.build params
       params.require(:project).permit(:name, :description)

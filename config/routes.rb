@@ -6,6 +6,8 @@ CreamPie::Application.routes.draw do
     resources :features
   end
 
+  get 'h_projects' => 'projects#h_projects'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
