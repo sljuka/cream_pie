@@ -10,6 +10,24 @@
 	</div>
 
 	<div class="row collapse">
+		<div class="small-3 columns">  
+			<%= f.label :name, class: "right inline" %>
+		</div>
+		<div class="small-9 columns">
+			<%= f.text_field :name %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="small-3 columns">  
+			<%= f.label :lastname, class: "right inline" %>
+		</div>
+		<div class="small-9 columns">
+			<%= f.text_field :lastname %>
+		</div>
+	</div>
+
+	<div class="row collapse">
 		<div class="small-9 small-offset-3 columns">
 			<%= f.submit "Save Account", class: "button radius small" %>
 		</div>

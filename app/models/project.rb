@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
 	has_many :project_members
 	has_many :accounts, :through => :project_members
 
+	#retrieve projects which have at least one feature who's name starts with 'h' or 'H'
+	
 	def self.h_projects
 		Project.select("projects.*").joins(:features).where(["features.name like ?", "H%"])
 	end

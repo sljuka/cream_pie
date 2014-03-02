@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
 
   class AccountParams < ActionController::Parameters
 	  def self.build params
-	    params.require(:account).permit(:username)
+	    params.require(:account).permit(:username, :name, :lastname)
 	  end
   end
 
