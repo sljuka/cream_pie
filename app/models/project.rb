@@ -9,7 +9,8 @@ class Project < ActiveRecord::Base
 	#retrieve projects which have at least one feature who's name starts with 'h' or 'H'
 	
 	def self.h_projects
-		Project.select("projects.*").joins(:features).where(["features.name like ?", "H%"])
+		project_ids = Project.select("projects.id").joins(:features).where(["features.name like ?", "H%"])
+		Project.find_all_by_id(project_ids)
 	end
 
 	def self.available_accounts(project)
