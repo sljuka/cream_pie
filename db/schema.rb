@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302111429) do
+ActiveRecord::Schema.define(version: 20140302172210) do
 
   create_table "accounts", force: true do |t|
     t.string   "username"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20140302111429) do
   end
 
   add_index "features", ["token"], name: "index_features_on_token", unique: true
+
+  create_table "project_members", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", force: true do |t|
     t.string   "name"

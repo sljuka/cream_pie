@@ -1,10 +1,14 @@
 CreamPie::Application.routes.draw do
 
+  get "accounts/create"
   root 'projects#index'
 
   resources :projects do
     resources :features
   end
+
+  resources :accounts, only: [:create, :new]
+  resources :project_members, only: [:create, :destroy]
 
   get 'h_projects' => 'projects#h_projects'
 

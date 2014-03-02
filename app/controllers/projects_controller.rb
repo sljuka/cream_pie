@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def show
   	@project = Project.find(params[:id])
+    @accounts = Project.available_accounts(@project)
   end
 
   def new

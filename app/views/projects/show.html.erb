@@ -1,10 +1,30 @@
 <h1><%= @project.name %></h1>
 <p><strong>Description:</strong> <%= @project.description %></p>
 
-<h3>Features</h3>
-
-<ul class="feature_list">
-	<%= render partial: "features/feature", collection: @project.features, as: :feature, locals: { project: @project } %>
-</ul>
+<div class="row">
+	<div class="large-4 columns">
+		<h3>Features</h3>
+		<ul class="feature_list">
+			<%= render partial: "features/feature", collection: @project.features, as: :feature, locals: { project: @project } %>
+		</ul>
+	</div>
+	<div class="large-4 columns">
+	</div>
+	<div class="large-4 columns">
+		<div>
+			<%= link_to 'Add account', new_account_path, class: "button radius" %>
+			<h3>Available accounts</h3>
+			<ul>
+				<%= render partial: "accounts/account", collection: @accounts, as: :account, locals: { project: @project } %>
+			</ul>
+		</div>
+		<div>
+			<h3>Project members</h3>
+			<ul>
+				<%= render partial: "project_members/project_member", collection: @project.accounts, as: :account, locals: { project: @project } %>
+			</ul>
+		</div>
+	</div>
+</div>
 
 <%= render partial: "features/feature_form", locals: { project: @project } %>
