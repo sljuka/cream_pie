@@ -1,8 +1,23 @@
 <h1>Projects</h1>	
 
-<%= link_to 'Add project', new_project_path, class: "button radius" %>
+<div class="row">
+	<div class="large-8 columns">
 
-<ul>
-	<%= render @projects %>
-</ul>
+		<%= link_to 'Add project', new_project_path, class: "button radius" %>
 
+		<ul>
+			<%= render @projects %>
+		</ul>
+
+	</div>
+
+	<div class="large-4 columns">
+		<div>
+			<%= link_to 'Add account', new_account_path, class: "button radius" %>
+			<h3>Available accounts</h3>
+			<ul>
+				<%= render partial: "accounts/account", collection: @accounts, as: :account %>
+			</ul>
+		</div>
+	</div>
+</div>

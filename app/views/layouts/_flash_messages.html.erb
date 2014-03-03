@@ -1,0 +1,24 @@
+<div class="row collapse">
+	<div class="large-4 large-offset-4 columns">
+		<% if flash[:success] %>
+		  <%= content_tag :div, :id => "flash_name", :class => "alert-box success" do %>
+		    <%= flash[:success] %>
+		    <a class="close">x</a>
+		  <% end %>
+		<% end %>
+
+		<% if flash[:notice] %>
+		  <%= content_tag :div, :id => "flash_name", :class => "alert-box" do %>
+		    <%= flash[:notice] %>
+		    <a class="close">x</a>
+		  <% end %>
+		<% end %>
+
+		<% if flash[:error] %>
+		  <%= content_tag :div, :id => "flash_name", :class => "alert-box alert" do %>
+		    <%= flash[:error] %>
+		    <a class="close">x</a>
+		  <% end %>
+		<% end %>
+	</div>
+</div>

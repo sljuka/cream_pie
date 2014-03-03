@@ -2,20 +2,21 @@
 <p><strong>Description:</strong> <%= @project.description %></p>
 
 <div class="row">
-	<div class="large-4 columns">
+	<div class="large-5 columns">
 		<h3>Features</h3>
 		<ul class="feature_list">
 			<%= render partial: "features/feature", collection: @project.features, as: :feature, locals: { project: @project } %>
 		</ul>
+		<%= render partial: "features/feature_form", locals: { project: @project } %>
 	</div>
-	<div class="large-4 columns">
+	<div class="large-3 columns">
 	</div>
 	<div class="large-4 columns">
 		<div>
 			<%= link_to 'Add account', new_account_path, class: "button radius" %>
 			<h3>Available accounts</h3>
 			<ul>
-				<%= render partial: "accounts/account", collection: @accounts, as: :account, locals: { project: @project } %>
+				<%= render partial: "accounts/available_account", collection: @accounts, as: :account, locals: { project: @project } %>
 			</ul>
 		</div>
 		<div>
@@ -27,4 +28,3 @@
 	</div>
 </div>
 
-<%= render partial: "features/feature_form", locals: { project: @project } %>

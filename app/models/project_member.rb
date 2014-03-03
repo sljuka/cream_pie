@@ -13,4 +13,13 @@ class ProjectMember < ActiveRecord::Base
 		end
 	end
 
+	def remove_from_project(current_user)
+		if(project.accounts.where(:id => current_user.id).count > 0)
+			self.destroy
+			true
+		else
+			false
+		end
+	end
+
 end

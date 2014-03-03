@@ -9,11 +9,10 @@ class FeaturesController < ApplicationController
     @feature = @project.features.build(FeatureParams.build params)
     respond_to do |format|
       if @feature.save
-        format.html { redirect_to @project, success: "feature added successfuly!" }
+        format.html { redirect_to @project }
         format.js
       else
-        flash.now[:error] = "error while adding feature"
-        render :template => 'projects/show'
+        format.js
       end
     end
   end

@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   
   def index
   	@projects = Project.all
+    @accounts = Account.all
   end
 
   def show
@@ -27,6 +28,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    flash[:success] = "project removed successfuly!"
     redirect_to projects_path
   end
 

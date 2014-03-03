@@ -1,0 +1,10 @@
+<li class="account">
+	<div class="row">
+		<div class="large-4 columns"><%= account.username %></div> 
+		<div class="small-4 columns">
+			<%= link_to 'Add to project', project_members_path(:account_id => account.id, :project_id => project.id), class: 'button tiny radius', :method=> :post %>	
+		</div>
+		<div class="small-4 columns">
+		</div>
+	</div>
+</li>

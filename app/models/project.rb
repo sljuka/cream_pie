@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
 	
 	def self.h_projects
 		project_ids = Project.select("projects.id").joins(:features).where(["features.name like ?", "H%"])
-		Project.find_all_by_id(project_ids)
+		Project.where(:id => project_ids)
 	end
 
 	def self.available_accounts(project)
