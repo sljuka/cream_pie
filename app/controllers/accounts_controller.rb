@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
   end
 
   def new
-  	
+  	@account = Account.new
   end
 
   class AccountParams < ActionController::Parameters

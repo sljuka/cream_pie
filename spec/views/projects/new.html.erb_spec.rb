@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe "projects/new.html.erb" do
 
-	let(:project) do
-		mock_model("Project").as_new_record.as_null_object
-	end
+	let(:project) { FactoryGirl.build(:project) }
 
 	before do
+		project.name = "newProject"
+		project.description = "newProjectDescription"
 		assign(:project, project)
 	end
 
@@ -16,8 +16,6 @@ describe "projects/new.html.erb" do
 	end
 
 	it "displays a form for adding projects" do
-		project.stub(:name => "newProject")
-		project.stub(:description => "newProjectDescription")
 		render
 		rendered.should have_xpath("//form[@action='/projects'][@method='post']")
 		rendered.should have_css("input[type='text'][value='newProject'][name='project[name]']")
