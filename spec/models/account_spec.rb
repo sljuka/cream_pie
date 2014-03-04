@@ -4,6 +4,13 @@ describe Account do
 	
 	let(:account) { FactoryGirl.build(:account) }
 
+	it { should respond_to(:username) }
+  it { should respond_to(:name) }
+  it { should respond_to(:lastname) }
+	it { should respond_to(:projects) }
+  it { should respond_to(:account_details) }
+  it { should respond_to(:project_members) }
+
 	describe "account validation" do
 
 		it "is valid with valid attributes" do

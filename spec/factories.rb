@@ -22,5 +22,20 @@ FactoryGirl.define do
     sequence(:lastname) {|n| "Lastname#{n}"}
   end
 
+  factory :pera, class: Account do
+    username "pera"
+    name "pera"
+    lastname "peric"
+  end
+
+  factory :perin_projekat, class: Project do
+    name "perin projekat"
+    description "ovo je perin projekat"
+  end
+
+  factory :pera_project_member, class: ProjectMember do
+    association :account, factory: :pera
+    association :project, factory: :perin_projekat
+  end
 
 end
